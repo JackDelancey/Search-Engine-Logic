@@ -1,0 +1,65 @@
+var contents = ["Loughborough University",
+                "Nottingham Trent University",
+                "leicester University"];
+
+var pages = ["|www.lboro.ac.uk|Loughborough University",
+             "|www.ntu.ac.uk|Nottingham Trent University",
+             "|www.le.ac.uk|Leicester University"];
+
+var web = [{url:"www.lboro.ac.uk",content:"Loughborough University"},
+           {url:"www.ntu.ac.uk",content:"Nottingham Trent University"}, 
+           {url:"www.le.ac.uk",content:"Leicester University"}];
+
+// Question 1
+function index(string,pattern,caseSensitive){
+  if(caseSensitive){
+    return string.indexOf(pattern);
+  } else {
+    string=string.toLowerCase();
+    pattern=pattern.toLowerCase();
+  return string.indexOf(pattern);
+  }
+  }
+
+alert(match("Hello","Hel££"));
+
+//Question 2
+function idxP1(contents,pattern){
+  for(var i=0; i<contents.length;i++){
+    var cont = contents[i];
+    var value = index(cont,pattern,false);
+    if (value>=0){
+      return i;
+    }
+  } return -1;
+}
+
+//Question 3
+
+function match(string,pattern){
+  pattern = removesymbols(pattern);
+  string=string.toLowerCase();
+  for(var i=0; i<pattern.length;i++){
+    var lett = pattern.charAt(i);
+    var idx = string.indexOf(lett);
+    if(idx==-1){
+      return false
+    }
+    
+  }
+  return true
+}
+function removesymbols(string){
+  var purestring = "";
+  string=string.toLowerCase();
+  for(var i=0; i<string.length;i++){
+    var lett = string.charAt(i);
+    if(lett<="z"&&lett>="a"){
+    purestring+=lett;
+     
+}
+}
+  return purestring;
+}
+   
+  
